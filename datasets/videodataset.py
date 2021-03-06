@@ -122,6 +122,7 @@ class VideoDataset(data.Dataset):
 
     def __getitem__(self, index):
         path = self.data[index]['video']
+        print(self.data)
         if isinstance(self.target_type, list):
             target = [self.data[index][t] for t in self.target_type]
         else:
