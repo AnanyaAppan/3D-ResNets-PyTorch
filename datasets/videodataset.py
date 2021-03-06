@@ -117,12 +117,10 @@ class VideoDataset(data.Dataset):
             self.spatial_transform.randomize_parameters()
             clip = [self.spatial_transform(img) for img in clip]
         clip = torch.stack(clip, 0).permute(1, 0, 2, 3)
-
         return clip
 
     def __getitem__(self, index):
         path = self.data[index]['video']
-        print(self.data)
         if isinstance(self.target_type, list):
             target = [self.data[index][t] for t in self.target_type]
         else:
@@ -136,7 +134,10 @@ class VideoDataset(data.Dataset):
 
         if self.target_transform is not None:
             target = self.target_transform(target)
-
+        print("clip")
+        print(clip)
+        print("target")
+        print(target)
         return clip, target
 
     def __len__(self):
