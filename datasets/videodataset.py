@@ -47,7 +47,7 @@ class VideoDataset(data.Dataset):
                  video_loader=None,
                  video_path_formatter=(lambda root_path, label, video_id:
                                        root_path / label / video_id),
-                 image_name_formatter=lambda x: f'image_{x:05d}.jpg',
+                 image_name_formatter=lambda x: f'{x:01d}.png',
                  target_type='label'):
         self.data, self.class_names = self.__make_dataset(
             root_path, annotation_path, subset, video_path_formatter)
@@ -69,7 +69,11 @@ class VideoDataset(data.Dataset):
             data = json.load(f)
         video_ids, video_paths, annotations = get_database(
             data, subset, root_path, video_path_formatter)
-        class_to_idx = get_class_labels(data)
+        # print(video_ids)
+        # print(video_paths)
+        # print(annotations)
+        # class_to_idx = get_class_labels(data)
+        class_to_idx={"ArmFlapping":0,"HeadBanging":1,"Spinning":2}
         idx_to_class = {}
         for name, label in class_to_idx.items():
             idx_to_class[label] = name

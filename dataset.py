@@ -8,7 +8,7 @@ from datasets.loader import VideoLoader, VideoLoaderHDF5, VideoLoaderFlowHDF5
 
 
 def image_name_formatter(x):
-    return f'image_{x:05d}.jpg'
+    return f'{x:01d}.png'
 
 
 def get_training_data(video_path,
