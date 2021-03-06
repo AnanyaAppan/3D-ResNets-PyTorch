@@ -134,7 +134,6 @@ class VideoDataset(data.Dataset):
         if self.target_transform is not None:
             target = self.target_transform(target)
         if(len(frame_indices) == 15): print("frame index with len 15")
-        if(len(target)==15): print("target with len 15")
         return clip, target
 
     def __len__(self):
