@@ -13,9 +13,9 @@ def video_process(video_file_path, dst_root_path, ext, fps=-1, size=240):
                    '-of default=noprint_wrappers=1:nokey=1 -show_entries '
                    'stream=width,height,avg_frame_rate,duration').split()
     ffprobe_cmd.append(str(video_file_path))
-    print(video_file_path)
+    # print(video_file_path)
     p = subprocess.run(ffprobe_cmd,stdout=subprocess.PIPE)
-    print(p.stdout)
+    # print(p.stdout)
     res = p.stdout.decode('utf-8').splitlines()
     if len(res) < 4:
         return
