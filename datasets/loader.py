@@ -35,7 +35,6 @@ class VideoLoader(object):
             image_path = video_path / self.image_name_formatter(i)
             if image_path.exists():
                 video.append(self.image_loader(image_path))
-        print(video)
         return video
 
 
