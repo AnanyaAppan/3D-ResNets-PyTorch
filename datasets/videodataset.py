@@ -47,7 +47,7 @@ class VideoDataset(data.Dataset):
                  video_loader=None,
                  video_path_formatter=(lambda root_path, label, video_id:
                                        root_path / label / video_id),
-                 image_name_formatter=lambda x: f'{x:01d}.png',
+                 image_name_formatter=lambda x: f'{x:01d}.jpg',
                  target_type='label'):
         self.data, self.class_names = self.__make_dataset(
             root_path, annotation_path, subset, video_path_formatter)
@@ -114,8 +114,6 @@ class VideoDataset(data.Dataset):
 
     def __loading(self, path, frame_indices):
         clip = self.loader(path, frame_indices)
-        print(path)
-        print(clip)
         if self.spatial_transform is not None:
             self.spatial_transform.randomize_parameters()
             clip = [self.spatial_transform(img) for img in clip]
