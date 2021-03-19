@@ -70,8 +70,8 @@ class VideoDataset(data.Dataset):
         video_ids, video_paths, annotations = get_database(
             data, subset, root_path, video_path_formatter)
         # class_to_idx = get_class_labels(data)
-        class_to_idx={"ArmFlapping":0,"HeadBanging":1,"Spinning":2}
-        # class_to_idx={"Arms up":0,"Lock hands":1,"Move the table":2, "Rolly Polly":3, "Tapping":4, "Touch ear":5, "Touch head":6, "Touchnose":7}
+        # class_to_idx={"ArmFlapping":0,"HeadBanging":1,"Spinning":2}
+        class_to_idx={"Arms up":0,"Lock hands":1,"Move the table":2, "Rolly Polly":3, "Tapping":4, "Touch ear":5, "Touch head":6, "Touchnose":7}
         idx_to_class = {}
         for name, label in class_to_idx.items():
             idx_to_class[label] = name
