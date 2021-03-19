@@ -35,6 +35,8 @@ def train_epoch(epoch,
 
         targets = targets.to(device, non_blocking=True)
         outputs = model(inputs)
+        print(outputs)
+        print(targets)
         loss = criterion(outputs, targets)
         acc = calculate_accuracy(outputs, targets)
 
