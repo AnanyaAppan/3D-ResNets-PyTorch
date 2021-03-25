@@ -1,5 +1,6 @@
 import json
 import glob
+import random
 
 # ret = {}
 # ret["database"] = {}
@@ -27,7 +28,10 @@ for category_path in glob.glob("../../8_s_clips/*"):
     for video_id_path in glob.glob("../../8_s_clips/"+category+"/*"):
         video_id = video_id_path.split('/')[-1].strip('.mp4')
         d = {}
-        d['subset'] = 'training'
+        if random.uniform(0, 1) >= 0.2:
+            d['subset'] = 'training'
+        else :
+            d['subset'] = 'testing'
         d['duration'] = 8.0
         d['actions'] = [[class_to_idx[category],0.0,8.0]]
         ret[category+'/'+video_id] = d
