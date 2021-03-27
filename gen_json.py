@@ -45,8 +45,8 @@ for category_path in glob.glob("../../SSBD/ssbd_clip_segment/*"):
             time = behaviour.find('time').text.split(':')[0].lstrip('0')
             l = [class_to_idx[category],time]
             d['actions'].append(l)
-        for i in len(range(d['actions'])):
-            if(i != len(range(d['actions']))-1):
+        for i in range(len(d['actions'])):
+            if(i != len(d['actions'])-1):
                 d['actions'][i].append(d['actions'][i+1][1])
         d['actions'][-1].append(d['duration'])
         ret[category+'/'+video_id] = d
