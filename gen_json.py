@@ -31,7 +31,7 @@ for category_path in glob.glob("../../SSBD/ssbd_clip_segment/*"):
         video_id = video_id_path.split('/')[-1]
         d = {}
         xml_file = '../../SSBD/Annotations/'+video_id+'.xml'
-        tree = ET.parse(fi)
+        tree = ET.parse(xml_file)
         root = tree.getroot()
         if random.uniform(0, 1) >= 0.2:
             d['subset'] = 'training'
