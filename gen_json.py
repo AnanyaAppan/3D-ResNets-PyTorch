@@ -24,10 +24,10 @@ import xml.etree.ElementTree as ET
 class_to_idx={"ArmFlapping":0,"HeadBanging":1,"Spinning":2}
 # class_to_idx={"Arms up":0,"Lock hands":1,"Move the table":2, "Rolly Polly":3, "Tapping":4, "Touch ear":5, "Touch head":6, "Touchnose":7}
 ret = {}
-print(glob.glob("../../SSBD/ssbd_clip_segment/*"))
-for category_path in glob.glob("../../SSBD/ssbd_clip_segment/*"):
+print(glob.glob("../../SSBD/ssbd_clip_segment/data/*"))
+for category_path in glob.glob("../../SSBD/ssbd_clip_segment/data/*"):
     category = category_path.split("/")[-1]
-    for video_id_path in glob.glob("../../SSBD/ssbd_clip_segment/"+category+"/*"):
+    for video_id_path in glob.glob("../../SSBD/ssbd_clip_segment/data/"+category+"/*"):
         video_id = video_id_path.split('/')[-1]
         d = {}
         xml_file = '../../SSBD/Annotations/'+video_id+'.xml'
