@@ -42,7 +42,11 @@ for category_path in glob.glob("../../SSBD/ssbd_clip_segment/data/*"):
         d['actions'] = []
         behaviours = root.find('behaviours')
         for behaviour in behaviours:
-            time = int(behaviour.find('time').text.split(':')[0].lstrip('0'))
+            time = behaviour.find('time')
+            if(':' in time):
+                time = int(time.text.split(':')[0].lstrip('0'))
+            else :
+                time = int(time.text.split('-')[0].lstrip('0'))
             l = [class_to_idx[category],time]
             d['actions'].append(l)
         for i in range(len(d['actions'])):
